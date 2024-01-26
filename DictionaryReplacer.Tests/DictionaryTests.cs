@@ -109,9 +109,11 @@ namespace DictionaryReplacer.Tests
         [Test]
         public void WhenNoCaseInsensitiveReplacement_Then_ReplaceCorrectly()
         {
-            var remplacements = new Dictionary<string, string> { { "VILLE", "Paris" } };
-            var resultat = Dictionary.ReplaceString("Bienvenue à $ville$.", remplacements);
-            Assert.That(resultat, Is.EqualTo("Bienvenue à Paris."));
+            var replacements = new Dictionary<string, string> { { "VILLE", "Paris" } };
+            var result = Dictionary.ReplaceString("Bienvenue à $VILLE$.", replacements);
+
+            Assert.That(result, Is.EqualTo("Bienvenue à Paris."));
+
         }
     }
 }

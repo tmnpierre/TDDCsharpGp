@@ -9,14 +9,17 @@ namespace DictionaryReplacer.Core
 {
     public class Dictionary
     {
-        public static string ReplaceString(string input, Dictionary<string, string> replacements)
+        public static string ReplaceString(string input, Dictionary<string, string> replacements, bool caseSensitive = true)
         {
             foreach (var pair in replacements)
             {
                 string pattern = @"\$" + Regex.Escape(pair.Key) + @"\$";
-                input = Regex.Replace(input, pattern, pair.Value);
+                RegexOptions options = caseSensitive ? RegexOptions.None : RegexOptions.IgnoreCase;
+                input = Regex.Replace(input, pattern, pair.Value, options);
             }
             return input;
         }
+
+
     }
 }
