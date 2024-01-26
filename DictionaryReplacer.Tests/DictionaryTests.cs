@@ -82,5 +82,12 @@ namespace DictionaryReplacer.Tests
             Assert.That(result, Is.EqualTo("This replaced and that replaced."));
         }
 
+        [Test]
+        public void WhenPlaceholdersWithSpecialCharacters_Then_ReplaceCorrectly()
+        {
+            var replacements = new Dictionary<string, string> { { "special char", "handled" } };
+            var result = Dictionary.ReplaceString("This has a $special char$.", replacements);
+            Assert.That(result, Is.EqualTo("This has a handled."));
+        }
     }
 }
