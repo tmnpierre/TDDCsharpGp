@@ -17,7 +17,7 @@ namespace DictionaryReplacer.Tests
 
             var result = dictionary.Count;
 
-            Assert.AreEqual(0, result);
+            Assert.That(result, Is.EqualTo(0));
         }
 
         [Test]
@@ -26,7 +26,7 @@ namespace DictionaryReplacer.Tests
             var replacements = new Dictionary<string, string> { { "temp", "temporary" } };
             var result = Dictionary.ReplaceString("$temp$", replacements);
 
-            Assert.AreEqual("temporary", result);
+            Assert.That(result, Is.EqualTo("temporary"));
         }
 
         [Test]
@@ -40,7 +40,7 @@ namespace DictionaryReplacer.Tests
 
             var result = Dictionary.ReplaceString("$temp$ here comes the name $name$", replacements);
 
-            Assert.AreEqual("temporary here comes the name John Doe", result);
+            Assert.That(result, Is.EqualTo("temporary here comes the name John Doe"));
         }
 
     }
