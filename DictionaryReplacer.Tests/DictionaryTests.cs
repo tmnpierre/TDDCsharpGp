@@ -71,7 +71,5 @@ namespace DictionaryReplacer.Tests
 
             Assert.That(result, Is.Not.EqualTo("temporary"));
         }
-
-
     }
 }
