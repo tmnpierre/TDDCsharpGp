@@ -27,7 +27,7 @@ namespace DictionaryReplacer.Tests
         public void WhenDictionary_IsNotEmpty_Then_CountIsNotZero()
         {
             //Arrange
-            var dictionary = new Dictionary<string, string>();
+            var dictionary = new Dictionary<string, string>() { { "temp", "temporary" } }; ;
 
             //Act
             var result = dictionary.Count;
