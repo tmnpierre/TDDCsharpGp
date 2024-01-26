@@ -60,18 +60,19 @@ namespace DictionaryReplacer.Tests
         }
 
         [Test]
-        public void WhenReplacingCaseSensitiveKey_Then_Fail()
+        public void WhenReplacingWithCaseSensitiveKey_Then_UseExactMatch()
         {
             var replacements = new Dictionary<string, string>
-            {
-                { "Temp", "temporary" },
-                { "temp", "Temporary" },
-                { "Temp", "tempoRary" }
-            };
+                {
+                    { "TEMP", "temporary" },
+                    { "temp", "Temporary" },
+                    { "Temp", "tempoRary" }
+                };
 
             var result = Dictionary.ReplaceString("$temp$", replacements);
 
-            Assert.That(result, Is.Not.EqualTo("temporary"));
+            Assert.That(result, Is.EqualTo("Temporary"));
         }
+
     }
 }
