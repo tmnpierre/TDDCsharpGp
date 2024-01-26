@@ -64,7 +64,9 @@ namespace DictionaryReplacer.Tests
         {
             var replacements = new Dictionary<string, string>
             {
-                { "Temp", "temporary" }
+                { "Temp", "temporary" },
+                { "temp", "Temporary" },
+                { "Temp", "tempoRary" }
             };
 
             var result = Dictionary.ReplaceString("$temp$", replacements);
