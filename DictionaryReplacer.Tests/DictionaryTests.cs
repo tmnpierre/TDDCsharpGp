@@ -98,5 +98,13 @@ namespace DictionaryReplacer.Tests
             Assert.That(result, Is.EqualTo("beginning in the middle finish"));
         }
 
+        [Test]
+        public void WhenNoMatchingKeyword_Then_LeaveAsIs()
+        {
+            var replacements = new Dictionary<string, string> { { "start", "beginning" } };
+            var result = Dictionary.ReplaceString("$start$ in the middle $end$", replacements);
+            Assert.That(result, Is.EqualTo("beginning in the middle $end$"));
+        }
+
     }
 }
