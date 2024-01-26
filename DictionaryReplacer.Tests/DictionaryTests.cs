@@ -29,5 +29,19 @@ namespace DictionaryReplacer.Tests
             Assert.AreEqual("temporary", result);
         }
 
+        [Test]
+        public void WhenMultipleReplacementsInString_Then_ReplaceCorrectly()
+        {
+            var replacements = new Dictionary<string, string>
+                {
+                    { "temp", "temporary" },
+                    { "name", "John Doe" }
+                };
+
+            var result = Dictionary.ReplaceString("$temp$ here comes the name $name$", replacements);
+
+            Assert.AreEqual("temporary here comes the name John Doe", result);
+        }
+
     }
 }
