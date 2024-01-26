@@ -59,5 +59,19 @@ namespace DictionaryReplacer.Tests
             Assert.That(result, Is.EqualTo("temporary here comes the name John Doe"));
         }
 
+        [Test]
+        public void WhenReplacingCaseSensitiveKey_Then_Fail()
+        {
+            var replacements = new Dictionary<string, string>
+            {
+                { "Temp", "temporary" }
+            };
+
+            var result = Dictionary.ReplaceString("$temp$", replacements);
+
+            Assert.That(result, Is.Not.EqualTo("temporary"));
+        }
+
+
     }
 }
