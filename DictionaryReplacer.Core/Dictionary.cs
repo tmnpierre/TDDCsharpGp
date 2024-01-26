@@ -11,7 +11,12 @@ namespace DictionaryReplacer.Core
     {
         public static string ReplaceString(string input, Dictionary<string, string> replacements)
         {
-            return input ;
+            foreach (var pair in replacements)
+            {
+                string pattern = @"\$" + Regex.Escape(pair.Key) + @"\$";
+                input = Regex.Replace(input, pattern, pair.Value);
+            }
+            return input;
         }
     }
 }
