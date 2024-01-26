@@ -13,11 +13,27 @@ namespace DictionaryReplacer.Tests
         [Test]
         public void WhenDictionary_IsEmpty_Then_CountIsZero()
         {
+            //Arrange
             var dictionary = new Dictionary<string, string>();
 
+            //Act
             var result = dictionary.Count;
 
+            //Assert
             Assert.That(result, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void WhenDictionary_IsNotEmpty_Then_CountIsNotZero()
+        {
+            //Arrange
+            var dictionary = new Dictionary<string, string>();
+
+            //Act
+            var result = dictionary.Count;
+
+            //Assert
+            Assert.That(result, Is.Not.EqualTo(0));
         }
 
         [Test]
