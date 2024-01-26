@@ -11,7 +11,7 @@ namespace DictionaryReplacer.Core
     {
         public static string ReplaceString(string input, Dictionary<string, string> replacements)
         {
-            return input;
+            return input ;
         }
     }
 }
