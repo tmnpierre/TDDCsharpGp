@@ -89,5 +89,14 @@ namespace DictionaryReplacer.Tests
             var result = Dictionary.ReplaceString("This has a $special char$.", replacements);
             Assert.That(result, Is.EqualTo("This has a handled."));
         }
+
+        [Test]
+        public void WhenPlaceholdersAtStartAndEnd_Then_ReplaceCorrectly()
+        {
+            var replacements = new Dictionary<string, string> { { "start", "beginning" }, { "end", "finish" } };
+            var result = Dictionary.ReplaceString("$start$ in the middle $end$", replacements);
+            Assert.That(result, Is.EqualTo("beginning in the middle finish"));
+        }
+
     }
 }
