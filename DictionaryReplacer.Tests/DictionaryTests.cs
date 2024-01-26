@@ -74,5 +74,13 @@ namespace DictionaryReplacer.Tests
             Assert.That(result, Is.EqualTo("Temporary"));
         }
 
+        [Test]
+        public void WhenMultipleOccurrencesOfSamePlaceholder_Then_ReplaceAll()
+        {
+            var replacements = new Dictionary<string, string> { { "word", "replaced" } };
+            var result = Dictionary.ReplaceString("This $word$ and that $word$.", replacements);
+            Assert.That(result, Is.EqualTo("This replaced and that replaced."));
+        }
+
     }
 }
