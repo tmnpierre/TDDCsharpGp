@@ -106,5 +106,12 @@ namespace DictionaryReplacer.Tests
             Assert.That(result, Is.EqualTo("beginning in the middle $end$"));
         }
 
+        [Test]
+        public void WhenNoCaseInsensitiveReplacement_Then_ReplaceCorrectly()
+        {
+            var remplacements = new Dictionary<string, string> { { "VILLE", "Paris" } };
+            var resultat = Dictionary.ReplaceString("Bienvenue à $ville$.", remplacements);
+            Assert.That(resultat, Is.EqualTo("Bienvenue à Paris."));
+        }
     }
 }
